@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { connect } from 'react-redux';
 import shortid from 'shortid';
 import s from 'components/ContactForm/ContactForm.module.scss';
+import { addContact } from 'redux/actions';
 
 function Form({ onSubmit }) {
   const [name, setName] = useState('');
@@ -76,41 +78,8 @@ function Form({ onSubmit }) {
   );
 }
 
-export default Form;
+const mapDispatchToProps = dispatch => ({
+  onSubmit: (name, number) => dispatch(addContact(name, number)),
+});
 
-// Version 2
-// const INITIAL_FORM_VALUES = {
-//   name: '',
-//   number: '',
-// };
-// function Form({ onSubmit }) {
-
-//   const [values, setValues] = useState(INITIAL_FORM_VALUES);
-
-//   const handleChange = e => {
-//     const { name, value } = e.currentTarget;
-//     console.log(name, value);
-
-//     setValues(prevState => ({ ...prevState, [name]: value }));
-//   };
-
-//   const handleSubmit = e => {
-//     e.preventDefault();
-//     onSubmit(values);
-//     reset();
-//   };
-
-//   const reset = () => {
-//     setValues({ ...INITIAL_FORM_VALUES });
-//   };
-
-// ver 3
-// const onNameChange = e => {
-//   const { value } = e.currentTarget;
-//   setName(value);
-// };
-
-// const onNumberChange = e => {
-//   const { value } = e.currentTarget;
-//   setNumber(value);
-// };
+export default connect(null, mapDispatchToProps)(Form);
