@@ -12,7 +12,6 @@ export default function Form() {
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
-
     switch (name) {
       case 'name':
         return setName(value);
