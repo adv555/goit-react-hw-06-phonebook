@@ -1,14 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/actions';
-import getFilterContacts from 'utils/filter-normalize';
+import { getVisibleContacts } from 'redux/selectors';
 
 import s from './ContactList.module.scss';
 
 export default function ContactList() {
-  const contacts = useSelector(({ contacts: { items, filter } }) =>
-    getFilterContacts(items, filter),
-  );
+  const contacts = useSelector(getVisibleContacts);
   const dispatch = useDispatch();
 
   return (

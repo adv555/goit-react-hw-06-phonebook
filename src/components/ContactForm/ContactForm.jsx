@@ -6,7 +6,6 @@ import { addContact } from 'redux/actions';
 
 export default function Form() {
   const dispatch = useDispatch();
-  const onSubmit = (name, number) => dispatch(addContact(name, number));
 
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -16,12 +15,10 @@ export default function Form() {
 
     switch (name) {
       case 'name':
-        setName(value);
-        break;
+        return setName(value);
 
       case 'number':
-        setNumber(value);
-        break;
+        return setNumber(value);
 
       default:
         return;
@@ -30,8 +27,7 @@ export default function Form() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    onSubmit(name, number);
-    // console.log(name, number);
+    dispatch(addContact(name, number));
     reset();
   };
 

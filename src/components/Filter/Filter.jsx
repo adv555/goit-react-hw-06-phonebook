@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeFilter } from 'redux/actions';
+import { getFilter } from 'redux/selectors';
 import s from 'components/Filter/Filter.module.scss';
 
 export default function Filter() {
-  const value = useSelector(({ contacts }) => contacts.filter);
+  const value = useSelector(getFilter);
   const dispatch = useDispatch();
 
   return (
@@ -19,11 +19,6 @@ export default function Filter() {
     </label>
   );
 }
-
-Filter.propTypes = {
-  value: PropTypes.string,
-  onChange: PropTypes.func,
-};
 
 // With import { connect } from 'react-redux';
 
