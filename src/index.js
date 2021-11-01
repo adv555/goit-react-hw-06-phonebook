@@ -10,6 +10,7 @@ import './index.css';
 import App from './App';
 
 console.log(store.getState());
+console.log(store);
 // store.dispatch(myAction);
 // store.dispatch(myAction2(5));
 // store.dispatch(myAction2(15));

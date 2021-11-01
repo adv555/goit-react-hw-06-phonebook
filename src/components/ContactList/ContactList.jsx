@@ -2,23 +2,25 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { deleteContact } from 'redux/actions';
 
-import s from './ContactList.module.css';
+import s from './ContactList.module.scss';
 
 const ContactList = ({ contacts, onDeleteContact }) => {
   return (
-    <ul className={s.contactList}>
-      {contacts.map(({ id, name, number }) => {
-        return (
-          <li className={s.contactListItem} id={id} key={id}>
-            <p className={s.text}>{name}</p>
-            <p className={s.text}>{number}</p>
-            <button className={s.btn} type="button" onClick={() => onDeleteContact(id)}>
-              delete
-            </button>
-          </li>
-        );
-      })}
-    </ul>
+    <div>
+      <ul className={s.contactList}>
+        {contacts.map(({ id, name, number }) => {
+          return (
+            <li className={s.contactListItem} id={id} key={id}>
+              <p className={s.text}>{name}</p>
+              <p className={s.text}>{number}</p>
+              <button className={s.btn} type="button" onClick={() => onDeleteContact(id)}>
+                delete
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 };
 
