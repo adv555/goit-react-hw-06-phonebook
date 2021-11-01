@@ -1,10 +1,13 @@
 import { useState } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import shortid from 'shortid';
 import s from 'components/ContactForm/ContactForm.module.scss';
 import { addContact } from 'redux/actions';
 
-function Form({ onSubmit }) {
+export default function Form() {
+  const dispatch = useDispatch();
+  const onSubmit = (name, number) => dispatch(addContact(name, number));
+
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -80,8 +83,10 @@ function Form({ onSubmit }) {
   );
 }
 
-const mapDispatchToProps = dispatch => ({
+// With import { connect } from 'react-redux';
+
+/** const mapDispatchToProps = dispatch => ({
   onSubmit: (name, number) => dispatch(addContact(name, number)),
 });
 
-export default connect(null, mapDispatchToProps)(Form);
+export default connect(null, mapDispatchToProps)(Form); */

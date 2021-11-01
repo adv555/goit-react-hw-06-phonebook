@@ -1,10 +1,16 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/actions';
+import getFilterContacts from 'utils/filter-normalize';
 
 import s from './ContactList.module.scss';
 
-const ContactList = ({ contacts, onDeleteContact }) => {
+export default function ContactList() {
+  const contacts = useSelector(({ contacts: { items, filter } }) =>
+    getFilterContacts(items, filter),
+  );
+  const dispatch = useDispatch();
+
   return (
     <div>
       <ul className={s.contactList}>
@@ -13,7 +19,7 @@ const ContactList = ({ contacts, onDeleteContact }) => {
             <li className={s.contactListItem} id={id} key={id}>
               <p className={s.text}>{name}</p>
               <p className={s.text}>{number}</p>
-              <button className={s.btn} type="button" onClick={() => onDeleteContact(id)}>
+              <button className={s.btn} type="button" onClick={() => dispatch(deleteContact(id))}>
                 delete
               </button>
             </li>
@@ -22,9 +28,12 @@ const ContactList = ({ contacts, onDeleteContact }) => {
       </ul>
     </div>
   );
-};
+}
 
-const getFilterContacts = (contacts, filter) => {
+// With import { connect } from 'react-redux';
+
+/**
+  const getFilterContacts = (contacts, filter) => {
   const normalizedFilter = filter.toLowerCase();
   return contacts.filter(({ name }) => name.toLowerCase().includes(normalizedFilter));
 };
@@ -38,3 +47,5 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
+
+ */
