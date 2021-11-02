@@ -1,18 +1,27 @@
 .contactList {
-  width: 400px;
-  margin: 0 auto;
-  margin-left: 0;
+  width: 280px;
+  font-size: calc(12px + 0.5vmin);
+
+  @media screen and( min-width:480px) {
+    width: 320px;
+  }
+  @media screen and( min-width:768px) {
+    width: 520px;
+    font-size: calc(14px + 0.5vmin);
+  }
 }
-.contactListItem {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
+
+td {
+  // border: 1px solid blue;
+  text-align: center;
 }
-.text {
-  margin: 0;
-  margin-right: 15px;
+.contactBtn {
+  text-align: right;
+
+  & .btn {
+    // padding: 2px 10px;
+    font-size: calc(14px + 0.5vmin);
+    border: none;
+    background: white;
+  }
 }
-/* .btn {
-  margin-top: 10px;
-} */

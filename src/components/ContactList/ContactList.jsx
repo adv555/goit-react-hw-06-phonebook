@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { ImBin } from 'react-icons/im';
 import { deleteContact } from 'redux/actions';
 import { getVisibleContacts } from 'redux/selectors';
 
@@ -10,21 +11,21 @@ export default function ContactList() {
   const dispatch = useDispatch();
 
   return (
-    <div>
-      <ul className={s.contactList}>
-        {contacts.map(({ id, name, number }) => {
-          return (
-            <li className={s.contactListItem} id={id} key={id}>
-              <p className={s.text}>{name}</p>
-              <p className={s.text}>{number}</p>
+    <table className={s.contactList}>
+      {contacts.map(({ id, name, number }) => {
+        return (
+          <tr className={s.contactListItem} id={id} key={id}>
+            <td className={s.name}>{name}</td>
+            <td className={s.number}>{number}</td>
+            <td className={s.contactBtn}>
               <button className={s.btn} type="button" onClick={() => dispatch(deleteContact(id))}>
-                delete
+                <ImBin />
               </button>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+            </td>
+          </tr>
+        );
+      })}
+    </table>
   );
 }
 

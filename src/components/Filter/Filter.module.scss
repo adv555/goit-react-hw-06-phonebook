@@ -1,9 +1,14 @@
 .FilterInput {
   display: block;
   margin: 0 auto;
-  min-width: 50vw;
+  // min-width: 50vw;
+  width: calc(180px + 2vmin);
   min-height: 20px;
   border-radius: 5px;
+
+  @media screen and (min-width: 420px) {
+    width: calc(320px + 2vmin);
+  }
 }
 .FilterLabel {
   font-size: small;

@@ -8,15 +8,17 @@ export default function Filter() {
   const dispatch = useDispatch();
 
   return (
-    <label className={s.FilterLabel} htmlFor="">
-      Filter contacts by name
-      <input
-        className={s.FilterInput}
-        type="text"
-        value={value}
-        onChange={e => dispatch(changeFilter(e.target.value))}
-      />
-    </label>
+    <div>
+      <label className={s.FilterLabel} htmlFor="">
+        Filter contacts by name
+        <input
+          className={s.FilterInput}
+          type="text"
+          value={value}
+          onChange={e => dispatch(changeFilter(e.target.value))}
+        />
+      </label>
+    </div>
   );
 }
 

@@ -3,9 +3,11 @@ import s from 'components/Section/Section.module.scss';
 
 function Section({ title, children }) {
   return (
-    <section className={`Container ${s.Section}`}>
+    <section className={`container ${s.Section}`}>
+      {/* <div className="container"> */}
       <h2 className={s.Title}>{title}</h2>
-      <div className={s.FormSection}>{children}</div>
+      <div className={s.ContentWrapper}>{children}</div>
+      {/* </div> */}
     </section>
   );
 }

@@ -3,7 +3,7 @@ import s from 'components/Header/Header.module.scss';
 function Header({ title, children }) {
   return (
     <header className={s.AppHeader}>
-      <div className="Container">
+      <div className="container">
         <h1>{title}</h1>
         {children}
       </div>
