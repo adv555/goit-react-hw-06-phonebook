@@ -2,12 +2,21 @@
   display: block;
   margin: 0 auto;
   // min-width: 50vw;
-  width: calc(180px + 2vmin);
+  // width: calc(180px + 2vmin);
+  width: 90vw;
   min-height: 20px;
   border-radius: 5px;
 
   @media screen and (min-width: 420px) {
-    width: calc(320px + 2vmin);
+    // width: calc(320px + 2vmin);
+    width: 60vw;
+    height: 25px;
+  }
+  @media screen and (min-width: 768px) {
+    // width: calc(520px + 3vmin);
+    width: 80vw;
+    margin-bottom: 10px;
+    height: 30px;
   }
 }
 .FilterLabel {

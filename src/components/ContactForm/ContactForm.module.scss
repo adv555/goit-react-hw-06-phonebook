@@ -1,6 +1,6 @@
-.Container {
-  padding: 20px 0;
-}
+// .Container {
+//   padding: 20px 0;
+// }
 
 .Form {
   display: flex;
@@ -8,6 +8,11 @@
   justify-content: space-between;
   align-items: center;
   padding-bottom: 20px;
+
+  @media screen and( min-width:768px) {
+    padding-right: 50px;
+    border-right: 1px solid darkgray;
+  }
 
   & label {
     display: flex;
@@ -17,12 +22,9 @@
   }
   & input {
     display: block;
-
     margin-bottom: 4px;
     height: 20px;
-    // width: 30vw;
     min-width: calc(170px + 2vmin);
-    // border-radius: 4px;
   }
   // & input:not(:first-child) {
   //   margin-top: 10px;
@@ -83,4 +85,5 @@
 .Group {
   // margin-top: 10px;
   margin-bottom: 10px;
+  position: relative;
 }

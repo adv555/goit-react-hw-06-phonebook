@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import shortid from 'shortid';
+// import { FaUser, FaMobileAlt } from 'react-icons/fa';
 import s from 'components/ContactForm/ContactForm.module.scss';
 import { addContact } from 'redux/actions';
 
@@ -41,10 +42,12 @@ export default function Form() {
   return (
     <form className={s.Form} onSubmit={handleSubmit}>
       <div className={s.Group}>
-        <label htmlFor={nameInputId}>Name</label>
+        {/* <label htmlFor={nameInputId}>Name</label> */}
+        {/* <FaUser style={{ position: 'absolute', top: '22px', left: '5px' }} size="13px" /> */}
         <input
           type="text"
           name="name"
+          placeholder="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
           required
@@ -57,10 +60,15 @@ export default function Form() {
       </div>
 
       <div className={s.Group}>
-        <label htmlFor={numberInputId}>Number</label>
+        {/* <label htmlFor={numberInputId}>Number</label> */}
+        {/* <FaMobileAlt
+          style={{ position: 'absolute', top: '20px', left: '5px' }}
+          size="calc(14px + 0.3vmin)"
+        /> */}
         <input
           type="tel"
           name="number"
+          placeholder="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
           required
